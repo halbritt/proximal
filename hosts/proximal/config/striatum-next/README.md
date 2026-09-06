@@ -37,7 +37,12 @@ Timers: `OnActiveSec`/`OnUnitInactiveSec` 900 s floors, `Persistent=true`.
 matching, v247+): `override.conf` (`KillMode=process` — detached lane supervisors
 must outlive the oneshot, see `../systemd-user/README.md`) and
 `openrouter-env.conf` (`EnvironmentFile=-~/.config/striatum/openrouter.env` —
-pointer only, the key lives outside this repo). One dir covers every current and
+pointer only, the key lives outside this repo) and, since 2026-09-06,
+`gomemlimit.conf` (`Environment=GOMEMLIMIT=24GiB` — a drive reached 46 GiB
+anon RSS and the kernel OOM-killed it beside a second drive and lane test runs;
+`memory.conf`'s MemoryHigh=72G throttles a cgroup but cannot save a globally
+exhausted box; the durable home is the wake-unit generator in striatum-next,
+follow-up 15). One dir covers every current and
 future `striatum-wake-*` unit, both name shapes. It replaced (2026-07-21) the
 per-repoid8 `striatum-wake-<repoid8>.service.d/` dirs, which — despite
 `../systemd-user/README.md`'s claim — **never applied to long-named units**

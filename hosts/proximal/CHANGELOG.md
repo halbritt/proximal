@@ -5,6 +5,10 @@ subsystem's `README.md` is its current-state reference; dense PostgreSQL cluster
 history lives in [`config/postgres/CHANGELOG.md`](config/postgres/CHANGELOG.md). See `git log` for granular
 history. **Values and config, never credentials.**
 
+## 2026-09-06
+
+- striatum-next wake units: shared drop-in `striatum-wake-.service.d/gomemlimit.conf` (`Environment=GOMEMLIMIT=24GiB`) after a global OOM kill of a 46 GiB drive at 19:47Z; installed on the box (`daemon-reload` done), mirrored here. Courtesy drives (instance scratchpad `cdrive-pnnp.sh`) export the same. Durable fix: the generator (`striatum-next` follow-up 15).
+
 ## 2026-08-31
 
 ### striatum-train landed the governance transaction (attempt 2)
